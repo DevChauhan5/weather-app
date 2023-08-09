@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-
-
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import Navbar from "./components/Navbar"
 
 function App() {
   const [city, setCity] = useState("");
@@ -55,10 +55,15 @@ function App() {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <Toaster />
 
       <h1 className="text-5xl font-bold text-center mt-5">Weather App</h1>
+      <div>
+      
+      </div>
 
       <div className="text-center bg-white border-2 border-black rounded-xl mt-6 p-4 w-full max-w-lg">
         <div className="flex items-center justify-center space-x-4">
@@ -121,33 +126,33 @@ function App() {
               </h1>
             </div>
             <p className="text-lg m-2">
-                Condition: {info.current.condition.text}
-              </p>
-              <p className="text-lg m-2">
-                Wind: {info.current.wind_mph} mph / {info.current.wind_kph} kph, {info.current.wind_dir}
-              </p>
-              <p className="text-lg m-2">
-                Pressure: {info.current.pressure_mb} mb / {info.current.pressure_in} in
-              </p>
-              <p className="text-lg m-2">
-                Humidity: {info.current.humidity}%
-              </p>
-              <p className="text-lg m-2">
-                Cloud Cover: {info.current.cloud}%
-              </p>
-              <p className="text-lg m-2">
-                Feels Like: {info.current.feelslike_c}°C / {info.current.feelslike_f}°F
-              </p>
-              <p className="text-lg m-2">
-                Visibility: {info.current.vis_km} km / {info.current.vis_miles} miles
-              </p>
-              <p className="text-lg m-2">UV Index: {info.current.uv}</p>
-              <p className="text-lg m-2">
-                Gusts: {info.current.gust_mph} mph / {info.current.gust_kph} kph
-              </p>
-              <p className="text-lg m-2">
-                Last Updated: {info.current.last_updated}
-              </p>
+              Condition: {info.current.condition.text}
+            </p>
+            <p className="text-lg m-2">
+              Wind: {info.current.wind_mph} mph / {info.current.wind_kph} kph, {info.current.wind_dir}
+            </p>
+            <p className="text-lg m-2">
+              Pressure: {info.current.pressure_mb} mb / {info.current.pressure_in} in
+            </p>
+            <p className="text-lg m-2">
+              Humidity: {info.current.humidity}%
+            </p>
+            <p className="text-lg m-2">
+              Cloud Cover: {info.current.cloud}%
+            </p>
+            <p className="text-lg m-2">
+              Feels Like: {info.current.feelslike_c}°C / {info.current.feelslike_f}°F
+            </p>
+            <p className="text-lg m-2">
+              Visibility: {info.current.vis_km} km / {info.current.vis_miles} miles
+            </p>
+            <p className="text-lg m-2">UV Index: {info.current.uv}</p>
+            <p className="text-lg m-2">
+              Gusts: {info.current.gust_mph} mph / {info.current.gust_kph} kph
+            </p>
+            <p className="text-lg m-2">
+              Last Updated: {info.current.last_updated}
+            </p>
           </div>
         )}
 
@@ -167,6 +172,7 @@ function App() {
         )}
       </div>
     </div>
+    </>
   );
 }
 
